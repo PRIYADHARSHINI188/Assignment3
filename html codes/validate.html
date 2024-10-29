@@ -1,0 +1,32 @@
+<html>
+    <title>MobileValidation</title>
+    <body>
+        <center>
+            <h1><i>Mobile Number Validation</i></h1>
+            <form>
+                <table>
+                    <tr><td>Enter the mobile number:</td>
+                    <td><input type="text" id="input" placeholder="Here..." ></td></tr>
+                    <tr><td><button onclick="validate()">Check it</button></td>
+                </table>
+                
+            </form>
+            <p id="output"></p>
+        </center>
+<script>
+    function validate(){
+        let text=document.getElementById("input").value;
+        let regex="/^[0-9]{10}$/";
+        let result=regex.test(text);
+        if(result) {
+                document.getElementById("output").innerText = "Valid Mobile Number";
+                document.getElementById("output").style.color = "green";
+            } else {
+                document.getElementById("output").innerText = "Invalid Mobile Number. Please enter a 10-digit number.";
+                document.getElementById("output").style.color = "red";
+            }
+        }
+    
+</script>
+    </body>
+</html>

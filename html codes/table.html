@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Operations</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Table Operations</h1>
+    <table id="dataTable">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+        </tr>
+        <tr>
+            <td>Row 1, Cell 1</td>
+            <td>Row 1, Cell 2</td>
+            <td>Row 1, Cell 3</td>
+        </tr>
+        <tr>
+            <td>Row 2, Cell 1</td>
+            <td>Row 2, Cell 2</td>
+            <td>Row 2, Cell 3</td>
+        </tr>
+    </table>
+    
+    <br>
+    <label for="borderWidth">Select Border Width:</label>
+    <select id="borderWidth" onchange="changeBorderWidth()">
+        <option value="1px">1px</option>
+        <option value="2px">2px</option>
+        <option value="3px">3px</option>
+        <option value="4px">4px</option>
+        <option value="5px">5px</option>
+    </select>
+
+    <br><br>
+    <label for="bgColorPicker">Background Color:</label>
+    <input type="color" id="bgColorPicker" onchange="changeColors()">
+    
+    <label for="fgColorPicker">Foreground Color:</label>
+    <input type="color" id="fgColorPicker" onchange="changeColors()">
+
+    <br><br>
+    <label for="textAlign">Text Alignment:</label>
+    <select id="textAlign" onchange="changeTextAlign()">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+    </select>
+
+    <script>
+        function changeBorderWidth() {
+            let borderWidth = document.getElementById("borderWidth").value;
+            let table = document.getElementById("dataTable");
+            table.style.borderWidth = borderWidth;
+        }
+
+        function changeColors() {
+            let bgColor = document.getElementById("bgColorPicker").value;
+            let fgColor = document.getElementById("fgColorPicker").value;
+            let table = document.getElementById("dataTable");
+
+            table.style.backgroundColor = bgColor;
+            table.style.color = fgColor;
+        }
+
+        function changeTextAlign() {
+            let textAlign = document.getElementById("textAlign").value;
+            let cells = document.querySelectorAll("#dataTable th, #dataTable td");
+
+            cells.forEach(cell => {
+                cell.style.textAlign = textAlign;
+            });
+        }
+    </script>
+</body>
+</html>

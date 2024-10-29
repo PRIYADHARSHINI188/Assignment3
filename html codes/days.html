@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Days Between Dates</title>
+</head>
+<body>
+    <h1>Calculate Days Between Dates</h1>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate">
+    
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate">
+    
+    <button onclick="calculateDays()">Calculate Days</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateDays() {
+            let startDate = new Date(document.getElementById("startDate").value);
+            let endDate = new Date(document.getElementById("endDate").value);
+
+            if (startDate && endDate) {
+                let timeDifference = endDate - startDate;
+                let dayDifference = timeDifference / (1000 * 3600 * 24);
+                document.getElementById("result").innerText = "Number of days between the selected dates: " + dayDifference;
+            } else {
+                document.getElementById("result").innerText = "Please select both dates.";
+            }
+        }
+    </script>
+</body>
+</html>

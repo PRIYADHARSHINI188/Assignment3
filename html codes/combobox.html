@@ -1,0 +1,40 @@
+<html>
+    <title>combobox</title>
+    <body><center>
+        <h1>COMBO BOX OPERATIONS</h1>
+        List Of Departments:<select id="combobox" onchange="dis()">
+            <option>CSE</option>
+            <option>IT</option>
+            <option>EEE</option>
+            <option>MECH</option>
+        </select><br><br>
+        <input type="text" id="newdep" placeholder="Enter the Department">
+        <button onclick="add()">Add Department</button>
+        <button onclick="remove()">Remove Department</button>
+        <p id="current">Selected Department: </p>
+        </center>
+        <script>
+            function add(){
+                if(combobox){
+                    let combobox=document.getElementById("combobox");
+                    let newdep=document.getElementById("newdep").value;
+                    if(newdep){
+                        let option=document.createElement("option");
+                        option.text=newdep;
+                        option.value=newdep;
+                        combobox.add(option);
+                    }
+                }
+            }
+            function remove(){
+                let combobox=document.getElementById("combobox");
+                combobox.remove(combobox.selectedIndex);
+            }
+            function dis(){
+                let combobox=document.getElementById('combobox').value;
+            let selectedItem = combobox.option[combobox.selectedIndex].text;
+            document.getElementById('current').innerText= selectedItem;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <title>Text operations</title>
+    <body>
+        <center>
+            <h1><i>TEXT OPERATIONS</i></h1>
+            <textarea id="input" placeholder="Enter your text..." rows="6" cols="70"></textarea>
+             <br><br>
+             <button onclick="play()">Click Me...!</button>
+             <p id="alpha">Number of Alphabets: </p>
+             <p id="dig">Number of Digits: </p>
+             <p id="num">Number of Special Characters:</p>
+             <input type="color" id="bgcolor" onchange="ChangeColor()">Background Color
+             <input type="color" id="tcolor"  onchange="ChangeColor()">Text Color
+        </center>
+        <script>
+            function ChangeColor(){
+                let bgColor=document.getElementById("bgcolor").value;
+                let tcolor=document.getElementById("tcolor").value;
+                let text=document.getElementById("input");
+                text.style.backgroundColor=bgColor;
+                text.style.color=tcolor;
+            }
+            function play(){
+                let text=document.getElementById("input").value;
+                let alpha=text.replace(/[^a-zA-Z]/g, "").length;
+                let dig=text.replace(/[^0-9]/g, "").length;
+                let num=text.replace(/[a-zA-Z0-9\s]/g, "").length;
+            document.getElementById("alpha").innerText = alpha;
+            document.getElementById("dig").innerText = dig;
+            document.getElementById("num").innerText = num;
+        }
+            
+        </script>
+    </body>
+</html>

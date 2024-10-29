@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        counter
+    </title>
+        <body>
+<center>
+    <h1>COUNTER</h1>
+    <p id="coun">0</p>
+    <button onclick="start()" style="color:green;">Start</button>
+    <button onclick="stop()" style="color: red;">Stop</button>
+</center>
+<script>
+    let counter=0;
+    let time;
+    function start(){
+        if(!time){
+            time=setInterval(()=>{
+                counter++;
+                document.getElementById("coun").innerText=counter;},1000);
+            }
+        }
+    function stop(){
+        clearInterval(time);
+        
+    }
+</script>
+        </body>
+    
+</html>

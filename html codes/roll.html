@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Student Information</h1>
+    <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+    <button onclick="displayStudentInfo()">Get Info</button>
+    <p id="studentInfo"></p>
+
+    <script>
+        function displayStudentInfo() {
+            let rollNumber = document.getElementById("rollNumber").value.toUpperCase();
+            let year = "Unknown";
+            let branch = "Unknown";
+
+            
+            let yearCode = rollNumber.substring(2, 4);
+            let currentYear = new Date().getFullYear();
+            let yearOfAdmission = 2000 + parseInt(yearCode);
+            let studyYear = currentYear - yearOfAdmission;
+
+            switch (studyYear) {
+                case 4:
+                    year = "Final Year";
+                    break;
+                case 3:
+                    year = "Third Year";
+                    break;
+                case 2:
+                    year = "Second Year";
+                    break;
+                case 1:
+                    year = "First Year";
+                    break;
+                default:
+                    year = "Unknown Year";
+            }
+
+            
+            let branchCode = rollNumber.substring(4, 6);
+            switch (branchCode) {
+                case "CS":
+                    branch = "Computer Science and Engineering (CSE)";
+                    break;
+                case "EC":
+                    branch = "Electronics and Communication Engineering (ECE)";
+                    break;
+                case "ME":
+                    branch = "Mechanical Engineering (ME)";
+                    break;
+                // Add more branches as needed
+                default:
+                    branch = "Unknown Branch";
+            }
+
+            document.getElementById("studentInfo").innerText = `${year} ${branch}`;
+        }
+    </script>
+</body>
+</html>

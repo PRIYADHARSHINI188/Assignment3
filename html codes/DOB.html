@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Date of Birth</title>
+</head>
+<body>
+    <h1>Date of Birth Validation</h1>
+    <label for="dob">Select Date of Birth:</label>
+    <input type="date" id="dob" min="2000-01-01" max="2020-09-01" value="2020-01-01">
+    <p id="validationMessage"></p>
+    
+    <script>
+        document.getElementById('dob').addEventListener('change', validateDate);
+
+        function validateDate() {
+            let dob = document.getElementById('dob').value;
+            let minDate = new Date('2000-01-01');
+            let maxDate = new Date('2020-09-01');
+            let selectedDate = new Date(dob);
+
+            if (selectedDate < minDate || selectedDate > maxDate) {
+                document.getElementById('validationMessage').innerText = 'Date of Birth must be between 01-01-2000 and 01-09-2020.';
+                document.getElementById('dob').value = '2020-01-01';
+            } else {
+                document.getElementById('validationMessage').innerText = '';
+            }
+        }
+    </script>
+</body>
+</html>

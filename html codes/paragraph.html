@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Styling</title>
+</head>
+<body><center>
+    <h1><i>Paragraph Styling</i></h1>
+    <p id="paragraphText">Let see the Magic!!!...</p>
+
+    <label for="fontType">Select Font Type:</label>
+    <select id="fontType" onchange="changeFontType()">
+        <option value="Arial">Arial</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+    </select>
+
+    <br><br>
+    <label for="fontSize">Select Font Size:</label>
+    <select id="fontSize" onchange="changeFontSize()">
+        <option value="12px">12px</option>
+        <option value="14px">14px</option>
+        <option value="16px">16px</option>
+        <option value="18px">18px</option>
+        <option value="20px">20px</option>
+        <option value="30px">30px</option>
+    </select>
+
+    <br><br>
+    <label for="textColorPicker">Select Text Color:</label>
+    <input type="color" id="textColorPicker" onchange="changeTextColor()">
+
+    <script>
+        function changeFontType() {
+            let selectedFont = document.getElementById("fontType").value;
+            document.getElementById("paragraphText").style.fontFamily = selectedFont;
+        }
+
+        function changeFontSize() {
+            let selectedSize = document.getElementById("fontSize").value;
+            document.getElementById("paragraphText").style.fontSize = selectedSize;
+        }
+
+        function changeTextColor() {
+            let selectedColor = document.getElementById("textColorPicker").value;
+            document.getElementById("paragraphText").style.color = selectedColor;
+        }
+    </script></center>
+</body>
+</html>

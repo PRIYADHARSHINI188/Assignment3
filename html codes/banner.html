@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertisement Banner</title>
+    <style>
+        #adBanner {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Advertisement Banner</h1>
+    <div id="adBanner">Ad 1: Buy the latest gadgets!</div>
+    
+    <script>
+        let ads = [
+            "Ad 1: Buy the latest gadgets!",
+            "Ad 2: Sale on summer clothing!",
+            "Ad 3: Get 20% off on your next purchase!",
+            "Ad 4: Join our loyalty program and save more!"
+        ];
+        let adIndex = 0;
+        
+        function rotateAds() {
+            adIndex = (adIndex + 1) % ads.length;
+            document.getElementById("adBanner").innerText = ads[adIndex];
+        }
+        
+        setInterval(rotateAds, 3000); // Change ad every 3 seconds
+    </script>
+</body>
+</html>
